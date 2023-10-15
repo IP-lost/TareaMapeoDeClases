@@ -1,0 +1,42 @@
+﻿@page
+@model TareaMapeoDeClases.Views.ArticuloEtiquetas.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ArticuloEtiqueta[0].Articulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArticuloEtiqueta[0].Etiqueta)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ArticuloEtiqueta) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Articulo.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Etiqueta.Etiqueta_Id)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
